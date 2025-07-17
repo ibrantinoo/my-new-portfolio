@@ -116,7 +116,7 @@ export default function About({ id, setActiveSection }: AboutProps) {
     setIsLoadingJoke(true);
     setJokeError(false);
     try {
-      const response = await fetch('https://v2.jokeapi.dev/joke/Miscellaneous,Programming?blacklistFlags=racist,sexist,explicit&type=single');
+      const response = await fetch('https://v2.jokeapi.dev/joke/Miscellaneous,Programming?blacklistFlags=racist,sexist,explicit,nsfw&type=single');
       const data = await response.json();
 
       if (!data.error) {

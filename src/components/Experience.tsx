@@ -21,6 +21,8 @@ interface ExperienceProps {
   setActiveSection: (section: string) => void;
 }
 
+const MotionTypography = motion(Typography);
+
 export default function Experience({ id }: ExperienceProps) {
   const theme = useTheme();
   // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -43,31 +45,37 @@ export default function Experience({ id }: ExperienceProps) {
         justifyContent: 'center',
         px: { xs: 4, md: 10 },
         py: 10,
+        alignItems: 'center',
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
+      <Typography
+        variant="h2"
+        sx={{
+          mb: 2,
+          fontWeight: 700,
+          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
+          backgroundClip: 'text',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          position: 'relative',
+          display: 'inline-block',
+          '&:before': {
+            content: '"06."',
+            color: theme.palette.primary.main,
+            position: 'absolute',
+            left: '-60px',
+            top: 0,
+            fontFamily: 'monospace',
+            fontSize: '0.6em',
+            fontWeight: 400,
+            opacity: 0.8,
+          },
+        }}
       >
-        <Typography
-          variant="h2"
-          sx={{
-            mb: 4,
-            '&:before': {
-              content: '"02."',
-              color: theme.palette.primary.main,
-              mr: 2,
-              fontFamily: 'monospace',
-            },
-          }}
-        >
-          Professional Journey
-        </Typography>
-      </motion.div>
+        Professional Journey
+      </Typography>
 
-      <Box sx={{ position: 'relative' }}>
+      <Box sx={{ position: 'relative',width:'100%' }}>
         {/* Timeline decoration */}
         <Box
           sx={{
@@ -81,7 +89,7 @@ export default function Experience({ id }: ExperienceProps) {
           }}
         />
 
-        {experiences.map((exp:any, index:number) => (
+        {experiences.map((exp: any, index: number) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
@@ -145,22 +153,22 @@ export default function Experience({ id }: ExperienceProps) {
                   <Typography variant="h4" sx={{ color: theme.palette.primary.main }}>
                     {exp.company}
                   </Typography>
-                  
+
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
-                    <Chip 
+                    <Chip
                       icon={<CalendarTodayIcon sx={{ fontSize: '1rem' }} />}
                       label={exp.duration}
                       size="small"
-                      sx={{ 
+                      sx={{
                         backgroundColor: theme.palette.background.paper,
                         color: theme.palette.text.primary,
                       }}
                     />
-                    <Chip 
+                    <Chip
                       icon={<LocationOnIcon sx={{ fontSize: '1rem' }} />}
                       label={exp.location}
                       size="small"
-                      sx={{ 
+                      sx={{
                         backgroundColor: theme.palette.background.paper,
                         color: theme.palette.text.primary,
                       }}
@@ -168,7 +176,7 @@ export default function Experience({ id }: ExperienceProps) {
                   </Box>
 
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
-                    {exp.tags.map((tag:any, i:number) => (
+                    {exp.tags.map((tag: any, i: number) => (
                       <Chip
                         key={i}
                         label={tag}
@@ -192,9 +200,9 @@ export default function Experience({ id }: ExperienceProps) {
                 }}
               >
                 <Divider sx={{ mb: 2, borderColor: theme.palette.divider }} />
-                <Box 
-                  component="ul" 
-                  sx={{ 
+                <Box
+                  component="ul"
+                  sx={{
                     pl: 2,
                     listStyleType: 'none',
                     '& li': {
@@ -210,7 +218,7 @@ export default function Experience({ id }: ExperienceProps) {
                     }
                   }}
                 >
-                  {exp.achievements.map((item:any, i:number) => (
+                  {exp.achievements.map((item: any, i: number) => (
                     <motion.li
                       key={i}
                       initial={{ opacity: 0, x: -10 }}
