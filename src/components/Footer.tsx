@@ -1,6 +1,5 @@
 // components/Footer.tsx
-import { Box, Typography, IconButton } from '@mui/material';
-import { GitHub, LinkedIn, Email, WhatsApp } from '@mui/icons-material';
+import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 export default function Footer() {

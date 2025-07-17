@@ -1,41 +1,35 @@
 // components/Contact.tsx
-import React, { useState, useEffect, useRef } from 'react';
 import {
-  Box,
-  Typography,
-  Button,
-  TextField,
-  useTheme,
-  Container,
-  Grid,
-  Card,
-  CardContent,
-  IconButton,
-  Chip,
-  Stack,
-  useMediaQuery,
-  Snackbar,
-  Alert,
-  Divider,
-  Tooltip
-} from '@mui/material';
-import { motion, useInView, useAnimation } from 'framer-motion';
-import {
-  WhatsApp,
-  Email,
-  LinkedIn,
-  GitHub,
-  Send,
-  LocationOn,
-  Phone,
   AccessTime,
+  AutoAwesome,
+  Close,
   Code,
   Coffee,
+  Email,
+  GitHub,
   Handshake,
+  LinkedIn,
+  LocationOn,
   RocketLaunch,
-  AutoAwesome,
-  Close
+  WhatsApp
 } from '@mui/icons-material';
+import {
+  Alert,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Container,
+  Grid,
+  IconButton,
+  Snackbar,
+  Tooltip,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material';
+import { motion, useAnimation, useInView } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface ContactProps {
   id: string;
@@ -45,11 +39,11 @@ interface ContactProps {
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 const MotionTypography = motion(Typography);
-const MotionButton = motion(Button);
+// const MotionButton = motion(Button);
 
 export default function Contact({ id, setActiveSection }: ContactProps) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  // const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const controls = useAnimation();
@@ -61,7 +55,7 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
   });
 
   const [showSnackbar, setShowSnackbar] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (isInView) {
@@ -77,14 +71,14 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    // setIsSubmitting(true);
     
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+    // setIsSubmitting(false);
     setShowSnackbar(true);
   };
 
@@ -183,7 +177,7 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
     >
       {/* Animated Background Elements */}
       <MotionBox
-        variants={floatingVariants}
+        // variants={floatingVariants}
         animate="animate"
         sx={{
           position: 'absolute',
@@ -199,7 +193,7 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
       />
       
       <MotionBox
-        variants={floatingVariants}
+        // variants={floatingVariants}
         animate="animate"
         style={{ animationDelay: '2s' }}
         sx={{
@@ -223,7 +217,7 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
         >
           {/* Section Header */}
           <MotionBox
-            variants={itemVariants}
+            // variants={itemVariants}
             sx={{ textAlign: 'center', mb: 6 }}
           >
             <MotionTypography
@@ -396,7 +390,7 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
             <Grid size={{ xs: 12, md: 12 }}>
                 {/* Social Links */}
                 <MotionCard
-                  variants={itemVariants}
+                  // variants={itemVariants}
                   sx={{
                     borderRadius: 4,
                     boxShadow: theme.palette.mode === 'dark' 

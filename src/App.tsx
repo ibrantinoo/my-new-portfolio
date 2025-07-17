@@ -1,7 +1,6 @@
 // App.tsx
-import { useState } from 'react';
-import { ThemeProvider, createTheme, CssBaseline, CircularProgress, LinearProgress } from '@mui/material';
-import { lazy, Suspense } from 'react';
+import { createTheme, CssBaseline, LinearProgress, ThemeProvider } from '@mui/material';
+import { lazy, Suspense, useState } from 'react';
 
 const About = lazy(() => import('./components/About'));
 const Experience = lazy(() => import('./components/Experience'));

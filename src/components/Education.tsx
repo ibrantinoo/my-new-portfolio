@@ -1,30 +1,29 @@
 // components/Education.tsx
-import React, { useEffect, useRef } from 'react';
-import { 
-  Box, 
-  Typography, 
-  Card, 
-  CardContent, 
-  Container, 
-  Grid, 
-  Chip, 
-  Stack,
-  useTheme,
-  useMediaQuery,
-  Avatar,
-  Divider
-} from '@mui/material';
-import { motion, useInView, useAnimation } from 'framer-motion';
-import { 
-  School, 
-  CalendarToday, 
-  LocationOn, 
-  Code, 
-  Storage, 
-  Web,
+import {
+  AutoStories,
+  CalendarToday,
+  Code,
   EmojiEvents,
-  AutoStories
+  LocationOn,
+  School,
+  Storage,
+  Web
 } from '@mui/icons-material';
+import {
+  Avatar,
+  Box,
+  Card,
+  CardContent,
+  Chip,
+  Container,
+  Divider,
+  Grid,
+  Stack,
+  Typography,
+  useTheme
+} from '@mui/material';
+import { motion, useAnimation, useInView } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 interface EducationProps {
   id: string;
@@ -37,7 +36,7 @@ const MotionTypography = motion(Typography);
 
 export default function Education({ id, setActiveSection }: EducationProps) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  // const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const controls = useAnimation();
@@ -60,37 +59,37 @@ export default function Education({ id, setActiveSection }: EducationProps) {
     }
   };
 
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15
-      }
-    }
-  };
+  // const itemVariants = {
+  //   hidden: { y: 50, opacity: 0 },
+  //   visible: {
+  //     y: 0,
+  //     opacity: 1,
+  //     transition: {
+  //       type: "spring",
+  //       stiffness: 100,
+  //       damping: 15
+  //     }
+  //   }
+  // };
 
-  const cardVariants = {
-    hidden: { 
-      scale: 0.8, 
-      opacity: 0,
-      rotateY: -15
-    },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      rotateY: 0,
-      transition: {
-        type: "spring",
-        stiffness: 120,
-        damping: 20,
-        delay: 0.3
-      }
-    }
-  };
+  // const cardVariants = {
+  //   hidden: { 
+  //     scale: 0.8, 
+  //     opacity: 0,
+  //     rotateY: -15
+  //   },
+  //   visible: {
+  //     scale: 1,
+  //     opacity: 1,
+  //     rotateY: 0,
+  //     transition: {
+  //       type: "spring",
+  //       stiffness: 120,
+  //       damping: 20,
+  //       delay: 0.3
+  //     }
+  //   }
+  // };
 
   const skillsData = [
     { icon: <Code />, label: "Programming Fundamentals", color: "primary" },
@@ -99,19 +98,19 @@ export default function Education({ id, setActiveSection }: EducationProps) {
     { icon: <AutoStories />, label: "Software Engineering", color: "warning" }
   ];
 
-  const achievementVariants = {
-    hidden: { x: -50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-        delay: 0.5
-      }
-    }
-  };
+  // const achievementVariants = {
+  //   hidden: { x: -50, opacity: 0 },
+  //   visible: {
+  //     x: 0,
+  //     opacity: 1,
+  //     transition: {
+  //       type: "spring",
+  //       stiffness: 100,
+  //       damping: 15,
+  //       delay: 0.5
+  //     }
+  //   }
+  // };
 
   return (
     <Box
@@ -150,12 +149,12 @@ export default function Education({ id, setActiveSection }: EducationProps) {
         >
           {/* Section Header */}
           <MotionBox
-            variants={itemVariants}
+            // variants={itemVariants}
             sx={{ textAlign: 'center', mb: 6 }}
           >
             <MotionTypography
               variant="h3"
-              component="h2"
+              // component="h2"
               sx={{
                 fontWeight: 700,
                 background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
@@ -186,7 +185,7 @@ export default function Education({ id, setActiveSection }: EducationProps) {
 
           {/* Education Card */}
           <MotionCard
-            variants={cardVariants}
+            // variants={cardVariants}
             sx={{
               maxWidth: 900,
               mx: 'auto',
@@ -229,7 +228,7 @@ export default function Education({ id, setActiveSection }: EducationProps) {
               />
               
               <Grid container spacing={2} alignItems="center">
-                <Grid item>
+                <Grid>
                   <Avatar
                     sx={{
                       bgcolor: 'rgba(255,255,255,0.2)',
@@ -241,7 +240,7 @@ export default function Education({ id, setActiveSection }: EducationProps) {
                     <School sx={{ fontSize: 32 }} />
                   </Avatar>
                 </Grid>
-                <Grid item xs>
+                <Grid>
                   <Typography
                     variant="h4"
                     component="h3"
@@ -299,7 +298,7 @@ export default function Education({ id, setActiveSection }: EducationProps) {
 
               {/* Key Learning Areas */}
               <MotionBox
-                variants={achievementVariants}
+                // variants={achievementVariants}
                 sx={{ mb: 3 }}
               >
                 <Typography
@@ -318,7 +317,7 @@ export default function Education({ id, setActiveSection }: EducationProps) {
 
                 <Grid container spacing={2}>
                   {skillsData.map((skill, index) => (
-                    <Grid item xs={12} sm={6} key={index}>
+                    <Grid size={{xs:12,sm:6}} key={index}>
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -353,8 +352,8 @@ export default function Education({ id, setActiveSection }: EducationProps) {
                               width: 40,
                               height: 40,
                               borderRadius: '50%',
-                              backgroundColor: `${theme.palette[skill.color as keyof typeof theme.palette].main}20`,
-                              color: theme.palette[skill.color as keyof typeof theme.palette].main
+                              // backgroundColor: `${theme.palette[skill.color as keyof typeof theme.palette].main}20`,
+                              // color: theme.palette[skill.color as keyof typeof theme.palette].main
                             }}
                           >
                             {skill.icon}

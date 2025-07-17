@@ -1,19 +1,18 @@
 // components/Experience.tsx
-import { 
-  Box, 
-  Typography, 
-  Accordion, 
-  AccordionSummary, 
-  AccordionDetails, 
-  useTheme,
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
   Chip,
   Divider,
-  useMediaQuery
+  Typography,
+  useMediaQuery,
+  useTheme
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import WorkIcon from '@mui/icons-material/Work';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 

@@ -1,41 +1,34 @@
 // components/About.tsx
-import { 
-  Box, 
-  Typography, 
-  Avatar, 
-  useTheme, 
-  Button, 
-  Paper,
-  IconButton,
-  Tooltip,
-  Chip,
-  Stack,
-  Divider,
+import {
+  Code as CodeIcon,
+  Coffee as CoffeeIcon,
+  Download as DownloadIcon,
+  Email as EmailIcon,
+  GitHub as GitHubIcon,
+  EmojiEmotions as JokeIcon,
+  LinkedIn as LinkedInIcon,
+  Palette as PaletteIcon,
+  Psychology as PsychologyIcon,
+  Refresh as RefreshIcon,
+  Rocket as RocketIcon,
+  Speed as SpeedIcon
+} from '@mui/icons-material';
+import {
+  Box,
+  Button,
   Card,
   CardContent,
+  Chip,
+  Container,
+  Divider,
+  IconButton,
   Skeleton,
-  Fade,
-  Zoom,
-  useMediaQuery,
-  Container
+  Stack,
+  Tooltip,
+  Typography,
+  useTheme
 } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Email as EmailIcon,
-  LinkedIn as LinkedInIcon,
-  GitHub as GitHubIcon,
-  Download as DownloadIcon,
-  PlayArrow as PlayIcon,
-  Refresh as RefreshIcon,
-  EmojiEmotions as JokeIcon,
-  Code as CodeIcon,
-  Palette as PaletteIcon,
-  Speed as SpeedIcon,
-  Psychology as PsychologyIcon,
-  Lightbulb as LightbulbIcon,
-  Coffee as CoffeeIcon,
-  Rocket as RocketIcon
-} from '@mui/icons-material';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 
@@ -110,11 +103,11 @@ const FloatingElements = () => {
 
 export default function About({ id, setActiveSection }: AboutProps) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  // const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [joke, setJoke] = useState('');
   const [isLoadingJoke, setIsLoadingJoke] = useState(false);
   const [jokeError, setJokeError] = useState(false);
-  const [showJoke, setShowJoke] = useState(false);
+  // const [showJoke, setShowJoke] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
 
   const fetchJoke = async () => {
@@ -126,7 +119,7 @@ export default function About({ id, setActiveSection }: AboutProps) {
       
       if (!data.error) {
         setJoke(data.joke);
-        setShowJoke(true);
+        // setShowJoke(true);
       } else {
         setJokeError(true);
       }

@@ -1,24 +1,24 @@
 // components/Header.tsx
-import { 
-  AppBar, 
-  Toolbar, 
-  Typography, 
-  Button, 
-  useScrollTrigger, 
-  Slide, 
-  Box, 
-  IconButton, 
+import MenuIcon from '@mui/icons-material/Menu';
+import {
+  AppBar,
+  Box,
+  Button,
   Drawer,
+  IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
+  Slide,
+  Toolbar,
+  Typography,
   useMediaQuery,
+  useScrollTrigger,
   useTheme
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-scroll';
 import { useState } from 'react';
+import { Link } from 'react-scroll';
 
 interface Props {
   children: React.ReactElement;

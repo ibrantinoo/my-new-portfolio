@@ -1,24 +1,22 @@
 // components/Interests.tsx
-import { 
-    Box, 
-    Typography, 
-    Grid, 
-    Card, 
-    CardContent, 
-    useTheme, 
-    Container,
-    IconButton,
-    Chip,
-    alpha,
-    useMediaQuery
-} from '@mui/material';
-import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import CodeIcon from '@mui/icons-material/Code';
-import MovieIcon from '@mui/icons-material/Movie';
 import BuildIcon from '@mui/icons-material/Build';
+import CodeIcon from '@mui/icons-material/Code';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import { motion, AnimatePresence } from 'framer-motion';
+import MovieIcon from '@mui/icons-material/Movie';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import {
+    Box,
+    Card,
+    CardContent,
+    Chip,
+    Container,
+    Grid,
+    IconButton,
+    Typography,
+    alpha,
+    useTheme
+} from '@mui/material';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
 interface InterestsProps {
@@ -26,9 +24,9 @@ interface InterestsProps {
     setActiveSection: (section: string) => void;
 }
 
-export default function Interests({ id, setActiveSection }: InterestsProps) {
+export default function Interests({ id }: InterestsProps) {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    // const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
     const [likedCards, setLikedCards] = useState<Set<number>>(new Set());
 
@@ -95,14 +93,14 @@ export default function Interests({ id, setActiveSection }: InterestsProps) {
 
     const titleVariants = {
         hidden: { opacity: 0, x: -50 },
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                duration: 0.8,
-                ease: 'easeOut',
-            },
-        },
+        // visible: {
+        //     opacity: 1,
+        //     x: 0,
+        //     transition: {
+        //         duration: 0.8,
+        //         ease: 'easeOut',
+        //     },
+        // },
     };
 
     const cardVariants = {
@@ -111,38 +109,38 @@ export default function Interests({ id, setActiveSection }: InterestsProps) {
             y: 50,
             scale: 0.8,
         },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: {
-                duration: 0.6,
-                ease: 'easeOut',
-            },
-        },
+        // visible: {
+        //     opacity: 1,
+        //     y: 0,
+        //     scale: 1,
+        //     transition: {
+        //         duration: 0.6,
+        //         ease: 'easeOut',
+        //     },
+        // },
     };
 
-    const iconVariants = {
-        hover: {
-            scale: 1.2,
-            rotate: 360,
-            transition: {
-                duration: 0.6,
-                ease: 'easeInOut',
-            },
-        },
-    };
+    // const iconVariants = {
+    //     hover: {
+    //         scale: 1.2,
+    //         rotate: 360,
+    //         transition: {
+    //             duration: 0.6,
+    //             ease: 'easeInOut',
+    //         },
+    //     },
+    // };
 
     const chipVariants = {
         hidden: { opacity: 0, scale: 0.8 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                duration: 0.4,
-                ease: 'easeOut',
-            },
-        },
+        // visible: {
+        //     opacity: 1,
+        //     scale: 1,
+        //     transition: {
+        //         duration: 0.4,
+        //         ease: 'easeOut',
+        //     },
+        // },
     };
 
     return (
@@ -289,7 +287,7 @@ export default function Interests({ id, setActiveSection }: InterestsProps) {
                                                 mb: 2 
                                             }}>
                                                 <motion.div
-                                                    variants={iconVariants}
+                                                    // variants={iconVariants}
                                                     whileHover="hover"
                                                     style={{
                                                         display: 'flex',

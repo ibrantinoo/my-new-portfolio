@@ -1,44 +1,41 @@
 // components/Skills.tsx
 import {
-  Box,
-  Typography,
-  Grid,
-  Chip,
-  useTheme,
-  Paper,
-  useMediaQuery,
-  Avatar,
-  Divider,
-  LinearProgress,
-  Tooltip,
-  IconButton,
-  Stack,
-  Card,
-  CardContent,
-  Badge,
-  Fade,
-  Zoom,
-  Collapse,
-  Button
-} from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
+  Dns as BackendIcon,
+  Cloud as CloudIcon,
   Code as CodeIcon,
   Storage as DatabaseIcon,
-  PhoneIphone as MobileIcon,
-  Cloud as CloudIcon,
-  Build as ToolsIcon,
-  Dns as BackendIcon,
-  TrendingUp as TrendingUpIcon,
-  School as LearnIcon,
-  Star as StarIcon,
-  ExpandMore as ExpandMoreIcon,
   ExpandLess as ExpandLessIcon,
-  Lightbulb as LightbulbIcon
+  ExpandMore as ExpandMoreIcon,
+  School as LearnIcon,
+  Lightbulb as LightbulbIcon,
+  PhoneIphone as MobileIcon,
+  Star as StarIcon,
+  Build as ToolsIcon,
+  TrendingUp as TrendingUpIcon
 } from '@mui/icons-material';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
-import { useState } from 'react';
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Chip,
+  Collapse,
+  Divider,
+  Grid,
+  IconButton,
+  LinearProgress,
+  Paper,
+  Stack,
+  Tooltip,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material';
+import { AnimatePresence, motion } from 'framer-motion';
 import type { JSX } from 'react';
+import { useState } from 'react';
 
 interface SkillsProps {
   id: string;
