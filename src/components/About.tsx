@@ -31,7 +31,7 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
-import { experiences } from '../utils/constants';
+// import { experiences } from '../utils/constants';
 import { caluclateOverallExperience } from '../utils/utils';
 
 interface AboutProps {
