@@ -30,7 +30,6 @@ import {
   Stack,
   Tooltip,
   Typography,
-  useMediaQuery,
   useTheme
 } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -329,9 +328,9 @@ const SkillCard = ({ category, index }: { category: SkillCategory; index: number
   );
 };
 
-export default function Skills({ id, setActiveSection }: SkillsProps) {
+export default function Skills({ id }: SkillsProps) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [showDisclaimer, setShowDisclaimer] = useState(false);
 
   const skillCategories: SkillCategory[] = [

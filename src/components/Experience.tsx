@@ -10,7 +10,6 @@ import {
   Chip,
   Divider,
   Typography,
-  useMediaQuery,
   useTheme
 } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -21,12 +20,13 @@ interface ExperienceProps {
   setActiveSection: (section: string) => void;
 }
 
-export default function Experience({ id, setActiveSection }: ExperienceProps) {
+export default function Experience({ id }: ExperienceProps) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [expanded, setExpanded] = useState<string | false>(false);
 
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    console.log(`Panel ${panel} is now ${isExpanded ? 'expanded' : 'collapsed'}; Event:`, event);
     setExpanded(isExpanded ? panel : false);
   };
 

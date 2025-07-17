@@ -1,16 +1,9 @@
 // components/Contact.tsx
 import {
-  AccessTime,
-  AutoAwesome,
   Close,
-  Code,
-  Coffee,
   Email,
   GitHub,
-  Handshake,
   LinkedIn,
-  LocationOn,
-  RocketLaunch,
   WhatsApp
 } from '@mui/icons-material';
 import {
@@ -25,11 +18,10 @@ import {
   Snackbar,
   Tooltip,
   Typography,
-  useMediaQuery,
   useTheme
 } from '@mui/material';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface ContactProps {
   id: string;
@@ -48,11 +40,11 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const controls = useAnimation();
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   message: '',
+  // });
 
   const [showSnackbar, setShowSnackbar] = useState(false);
   // const [isSubmitting, setIsSubmitting] = useState(false);
@@ -64,23 +56,23 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
     }
   }, [isInView, controls, setActiveSection, id]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prev) => ({ ...prev, [name]: value }));
+  // };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    // setIsSubmitting(true);
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   // setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+  //   // Simulate form submission
+  //   await new Promise(resolve => setTimeout(resolve, 1000));
     
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', message: '' });
-    // setIsSubmitting(false);
-    setShowSnackbar(true);
-  };
+  //   console.log('Form submitted:', formData);
+  //   setFormData({ name: '', email: '', message: '' });
+  //   // setIsSubmitting(false);
+  //   setShowSnackbar(true);
+  // };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -95,27 +87,27 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
 
   const itemVariants = {
     hidden: { y: 50, opacity: 1},
-    visible: { 
-      y: 0, 
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 20
-      }
-    }
+    // visible: { 
+    //   y: 0, 
+    //   opacity: 1,
+    //   transition: {
+    //     type: "spring",
+    //     stiffness: 100,
+    //     damping: 20
+    //   }
+    // }
   };
 
-  const floatingVariants = {
-    animate: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
+  // const floatingVariants = {
+  //   animate: {
+  //     y: [-10, 10, -10],
+  //     transition: {
+  //       duration: 4,
+  //       repeat: Infinity,
+  //       ease: "easeInOut"
+  //     }
+  //   }
+  // };
 
   const socialLinks = [
     {
@@ -148,18 +140,18 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
     }
   ];
 
-  const quickInfo = [
-    { icon: <LocationOn />, label: 'Location', value: 'Chennai, Tamil Nadu, India' },
-    { icon: <AccessTime />, label: 'Response Time', value: 'Within 24 hours' },
-    { icon: <Code />, label: 'Status', value: 'Available for work' }
-  ];
+  // const quickInfo = [
+  //   { icon: <LocationOn />, label: 'Location', value: 'Chennai, Tamil Nadu, India' },
+  //   { icon: <AccessTime />, label: 'Response Time', value: 'Within 24 hours' },
+  //   { icon: <Code />, label: 'Status', value: 'Available for work' }
+  // ];
 
-  const reasons = [
-    { icon: <RocketLaunch />, text: 'New opportunities' },
-    { icon: <Coffee />, text: 'Collaboration ideas' },
-    { icon: <Handshake />, text: 'Freelance projects' },
-    { icon: <AutoAwesome />, text: 'Just say hello' }
-  ];
+  // const reasons = [
+  //   { icon: <RocketLaunch />, text: 'New opportunities' },
+  //   { icon: <Coffee />, text: 'Collaboration ideas' },
+  //   { icon: <Handshake />, text: 'Freelance projects' },
+  //   { icon: <AutoAwesome />, text: 'Just say hello' }
+  // ];
 
   return (
     <Box
@@ -217,7 +209,7 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
         >
           {/* Section Header */}
           <MotionBox
-            // variants={itemVariants}
+            variants={itemVariants}
             sx={{ textAlign: 'center', mb: 6 }}
           >
             <MotionTypography
