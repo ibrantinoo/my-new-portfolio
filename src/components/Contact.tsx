@@ -222,13 +222,6 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
                 WebkitTextFillColor: 'transparent',
                 mb: 2,
                 fontSize: { xs: '2rem', md: '2.5rem' },
-                '&:before': {
-                  content: '"05."',
-                  color: theme.palette.primary.main,
-                  mr: 2,
-                  fontFamily: 'monospace',
-                  fontSize: { xs: '1.2rem', md: '1.5rem' }
-                }
               }}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -251,7 +244,7 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
             </MotionTypography>
           </MotionBox>
 
-          <Grid container spacing={4}>
+          <Grid container spacing={4} marginTop={4}>
             {/* Contact Form */}
             {/* <Grid size={{ xs: 12, md: 12 }}>
               <MotionCard
@@ -379,7 +372,7 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
             </Grid> */}
 
             {/* Contact Info & Social Links */}
-            <Grid size={{ xs: 12, md: 12 }}>
+            <Grid size={{ xs: 12, md: 12 }} marginTop={5}>
                 {/* Social Links */}
                 <MotionCard
                   // variants={itemVariants}
