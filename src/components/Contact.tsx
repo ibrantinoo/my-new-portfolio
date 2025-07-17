@@ -144,7 +144,7 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
       href: 'https://linkedin.com/in/mohamed-ibrahim-linked-in',
       color: '#0077B5',
       description: 'Connect professionally'
-    },
+    }, 
     {
       icon: <GitHub />,
       label: 'GitHub',
