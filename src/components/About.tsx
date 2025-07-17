@@ -31,6 +31,8 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
+import { experiences } from '../utils/constants';
+import { caluclateOverallExperience } from '../utils/utils';
 
 interface AboutProps {
   id: string;
@@ -70,7 +72,7 @@ const TypewriterText = ({ text, speed = 100 }: { text: string; speed?: number })
 
 const FloatingElements = () => {
   const theme = useTheme();
-  
+
   return (
     <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', zIndex: 0 }}>
       {[...Array(6)].map((_, i) => (
@@ -116,7 +118,7 @@ export default function About({ id, setActiveSection }: AboutProps) {
     try {
       const response = await fetch('https://v2.jokeapi.dev/joke/Miscellaneous,Programming?blacklistFlags=racist,sexist,explicit&type=single');
       const data = await response.json();
-      
+
       if (!data.error) {
         setJoke(data.joke);
         // setShowJoke(true);
@@ -133,19 +135,24 @@ export default function About({ id, setActiveSection }: AboutProps) {
 
   useEffect(() => {
     fetchJoke();
+    // const { year, month, totalMonths }: any = caluclateOverallExperience();
+    // console.log(`Overall Experience: ${year} years and ${month} months (${totalMonths} months total)`);
+
   }, []);
 
+
+
   const highlights = [
-    { icon: <CodeIcon />, text: '4.5+ Years Experience', color: theme.palette.primary.main },
+    { icon: <CodeIcon />, text: `${caluclateOverallExperience()} of Experience`, color: theme.palette.primary.main },
     { icon: <PaletteIcon />, text: 'UI/UX Focused', color: theme.palette.secondary.main },
     { icon: <SpeedIcon />, text: 'Performance Optimized', color: theme.palette.success.main },
     { icon: <PsychologyIcon />, text: 'Problem Solver', color: theme.palette.warning.main },
   ];
 
   const socialLinks = [
-    { icon: <EmailIcon />, label: 'Email', href: 'mailto:your.email@example.com', color: theme.palette.error.main },
-    { icon: <LinkedInIcon />, label: 'LinkedIn', href: 'https://linkedin.com/in/yourprofile', color: '#0077b5' },
-    { icon: <GitHubIcon />, label: 'GitHub', href: 'https://github.com/yourprofile', color: theme.palette.text.primary },
+    { icon: <EmailIcon />, label: 'Email', href: 'mailto:your.ibumohamed818@proton.me', color: theme.palette.error.main },
+    { icon: <LinkedInIcon />, label: 'LinkedIn', href: 'https://linkedin.com/in/mohamed-ibrahim-linked-in', color: '#0077b5' },
+    { icon: <GitHubIcon />, label: 'GitHub', href: 'https://github.com/ibrantinoo', color: theme.palette.text.primary },
   ];
 
   return (
@@ -164,16 +171,16 @@ export default function About({ id, setActiveSection }: AboutProps) {
       }}
     >
       <FloatingElements />
-      
+
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-        <Box sx={{ 
+        <Box sx={{
           display: 'flex',
           flexDirection: { xs: 'column', lg: 'row' },
           alignItems: { xs: 'flex-start', lg: 'center' },
           gap: { xs: 4, lg: 8 },
           width: '100%'
         }}>
-          
+
           {/* Main Content */}
           <Box sx={{ flex: 1, maxWidth: { xs: '100%', lg: '60%' } }}>
             {/* Greeting */}
@@ -183,9 +190,9 @@ export default function About({ id, setActiveSection }: AboutProps) {
               transition={{ duration: 0.8 }}
               onAnimationComplete={() => setHasAnimated(true)}
             >
-              <Typography 
-                variant="h4" 
-                sx={{ 
+              <Typography
+                variant="h4"
+                sx={{
                   color: theme.palette.primary.main,
                   mb: 2,
                   fontFamily: 'monospace',
@@ -203,9 +210,9 @@ export default function About({ id, setActiveSection }: AboutProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <Typography 
-                variant="h1" 
-                sx={{ 
+              <Typography
+                variant="h1"
+                sx={{
                   mb: 2,
                   fontWeight: 800,
                   fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
@@ -225,9 +232,9 @@ export default function About({ id, setActiveSection }: AboutProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Typography 
-                variant="h1" 
-                sx={{ 
+              <Typography
+                variant="h1"
+                sx={{
                   color: theme.palette.text.secondary,
                   mb: 4,
                   fontWeight: 700,
@@ -249,10 +256,10 @@ export default function About({ id, setActiveSection }: AboutProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <Stack 
-                direction="row" 
-                spacing={1} 
-                sx={{ 
+              <Stack
+                direction="row"
+                spacing={1}
+                sx={{
                   mb: 4,
                   flexWrap: 'wrap',
                   gap: 1
@@ -292,9 +299,9 @@ export default function About({ id, setActiveSection }: AboutProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <Typography 
-                variant="body1" 
-                sx={{ 
+              <Typography
+                variant="body1"
+                sx={{
                   maxWidth: '600px',
                   mb: 4,
                   fontSize: { xs: '1rem', md: '1.125rem' },
@@ -302,8 +309,8 @@ export default function About({ id, setActiveSection }: AboutProps) {
                   color: theme.palette.text.secondary
                 }}
               >
-                I'm a passionate frontend developer with <strong>4.5+ years of experience</strong> crafting beautiful, 
-                user-friendly web applications. I specialize in <strong>React</strong> and love creating interactive 
+                I'm a passionate frontend developer with <strong>{`${caluclateOverallExperience()}`} of experience</strong> crafting beautiful,
+                user-friendly web applications. I specialize in <strong>React</strong> and love creating interactive
                 experiences that are both functional and delightful to use.
               </Typography>
             </motion.div>
@@ -387,7 +394,7 @@ export default function About({ id, setActiveSection }: AboutProps) {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                    <Button
+                  <Button
                     variant="outlined"
                     endIcon={<DownloadIcon />}
                     sx={{
@@ -400,9 +407,9 @@ export default function About({ id, setActiveSection }: AboutProps) {
                       borderRadius: 2,
                       textTransform: 'none',
                       '&:hover': {
-                      borderColor: theme.palette.primary.dark,
-                      backgroundColor: `${theme.palette.primary.main}10`,
-                      transform: 'translateY(-2px)',
+                        borderColor: theme.palette.primary.dark,
+                        backgroundColor: `${theme.palette.primary.main}10`,
+                        transform: 'translateY(-2px)',
                       },
                       transition: 'all 0.3s ease',
                     }}
@@ -410,16 +417,16 @@ export default function About({ id, setActiveSection }: AboutProps) {
                       // Place the PDF in the public folder and use the absolute path
                       window.open('/Mohamed_Ibrahim_Developer.pdf', '_blank');
                     }}
-                    >
+                  >
                     View CV
-                    </Button>
+                  </Button>
                 </motion.div>
               </Stack>
             </motion.div>
           </Box>
 
           {/* Joke Card */}
-          <Box sx={{ 
+          <Box sx={{
             flex: { xs: '1', lg: '0 0 400px' },
             width: { xs: '100%', lg: '400px' }
           }}>
@@ -502,9 +509,9 @@ export default function About({ id, setActiveSection }: AboutProps) {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                         >
-                          <Typography 
-                            variant="body2" 
-                            sx={{ 
+                          <Typography
+                            variant="body2"
+                            sx={{
                               color: theme.palette.error.main,
                               fontStyle: 'italic',
                               textAlign: 'center'
@@ -522,9 +529,9 @@ export default function About({ id, setActiveSection }: AboutProps) {
                           exit={{ opacity: 0, y: -20 }}
                           transition={{ duration: 0.5 }}
                         >
-                          <Typography 
-                            variant="body1" 
-                            sx={{ 
+                          <Typography
+                            variant="body1"
+                            sx={{
                               fontStyle: 'italic',
                               lineHeight: 1.6,
                               color: theme.palette.text.secondary

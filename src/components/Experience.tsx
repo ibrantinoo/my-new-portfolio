@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { experiences } from '../utils/constants'; // Adjust the import path as necessary
 
 interface ExperienceProps {
   id: string;
@@ -30,60 +31,7 @@ export default function Experience({ id }: ExperienceProps) {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const experiences = [
-    {
-      role: 'Senior Software Developer',
-      company: 'Kruu Inc.',
-      duration: 'Oct 2022 - Present',
-      location: 'Chennai, India',
-      achievements: [
-        'Architected dynamic and scalable frontend features using ReactJS',
-        'Created interactive dashboards with Chart.js for data visualization',
-        'Integrated RESTful APIs optimized for large-scale user interactions',
-        'Developed a real-time chat system using GraphQL',
-        'Implemented user authentication systems with robust validation',
-        'Mentored junior developers and led code reviews',
-        'Automated processes reducing manual work by 75%',
-      ],
-      tags: ['React', 'GraphQL', 'AWS', 'Leadership'],
-    },
-    {
-      role: 'Freelance Full Stack Developer',
-      company: 'Ensure Investigation Service',
-      duration: 'Nov 2021 - Oct 2022',
-      location: 'Remote',
-      achievements: [
-        'Built full-stack web and mobile applications using MERN stack',
-        'Developed backend services with AWS (Cognito, API Gateway, Lambda)',
-        'Implemented role-based access control for different user types',
-      ],
-      tags: ['MERN Stack', 'AWS', 'Full-stack'],
-    },
-    {
-      role: 'Junior Software Developer',
-      company: 'PyPs.In Technologies',
-      duration: 'Nov 2021 - Oct 2022',
-      location: 'Chennai, India',
-      achievements: [
-        'Developed static sites and software solutions using React',
-        'Migrated legacy PHP application to React',
-        'Integrated and tested APIs using Axios and Postman',
-      ],
-      tags: ['React', 'API Integration', 'Migration'],
-    },
-    {
-      role: 'Web Developer',
-      company: 'SVS Infotech',
-      duration: 'Sep 2020 - Oct 2021',
-      location: 'Chennai, India',
-      achievements: [
-        'Built content management systems and web applications',
-        'Worked with HTML, CSS, PHP, MySQL, and React',
-        'Collaborated closely with clients to deliver tailored solutions',
-      ],
-      tags: ['Web Development', 'CMS', 'Client Collaboration'],
-    },
-  ];
+
 
   return (
     <Box
@@ -133,7 +81,7 @@ export default function Experience({ id }: ExperienceProps) {
           }}
         />
 
-        {experiences.map((exp, index) => (
+        {experiences.map((exp:any, index:number) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
@@ -220,7 +168,7 @@ export default function Experience({ id }: ExperienceProps) {
                   </Box>
 
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
-                    {exp.tags.map((tag, i) => (
+                    {exp.tags.map((tag:any, i:number) => (
                       <Chip
                         key={i}
                         label={tag}
@@ -262,7 +210,7 @@ export default function Experience({ id }: ExperienceProps) {
                     }
                   }}
                 >
-                  {exp.achievements.map((item, i) => (
+                  {exp.achievements.map((item:any, i:number) => (
                     <motion.li
                       key={i}
                       initial={{ opacity: 0, x: -10 }}

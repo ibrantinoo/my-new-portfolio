@@ -81,18 +81,18 @@ export default function Interests({ id }: InterestsProps) {
 
     // Animation variants
     const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.3,
-            },
-        },
+        // hidden: { opacity: 0 },
+        // visible: {
+        //     opacity: 1,
+        //     transition: {
+        //         staggerChildren: 0.1,
+        //         delayChildren: 0.3,
+        //     },
+        // },
     };
 
     const titleVariants = {
-        hidden: { opacity: 0, x: -50 },
+        // hidden: { opacity: 0, x: -50 },
         // visible: {
         //     opacity: 1,
         //     x: 0,
@@ -105,9 +105,9 @@ export default function Interests({ id }: InterestsProps) {
 
     const cardVariants = {
         hidden: { 
-            opacity: 0, 
-            y: 50,
-            scale: 0.8,
+            // opacity: 0, 
+            // y: 50,
+            // scale: 0.8,
         },
         // visible: {
         //     opacity: 1,
@@ -132,7 +132,7 @@ export default function Interests({ id }: InterestsProps) {
     // };
 
     const chipVariants = {
-        hidden: { opacity: 0, scale: 0.8 },
+        // hidden: { opacity: 0, scale: 0.8 },
         // visible: {
         //     opacity: 1,
         //     scale: 1,
@@ -166,6 +166,7 @@ export default function Interests({ id }: InterestsProps) {
                 },
             }}
         >
+
             <Container maxWidth="lg">
                 <motion.div
                     initial="hidden"

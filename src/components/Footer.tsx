@@ -35,7 +35,7 @@ export default function Footer() {
         </IconButton>
         <IconButton
           aria-label="Email"
-          href="mailto:ibumohamed818@gmail.com"
+          href="mailto:ibumohamed818@proton.me"
           sx={{ color: theme.palette.text.secondary, '&:hover': { color: theme.palette.primary.main } }}
         >
           <Email />

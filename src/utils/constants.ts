@@ -1,0 +1,62 @@
+  export const experiences = [
+    {
+      role: 'Senior Software Developer',
+      company: 'Kruu Inc.',
+      duration: 'Oct 2022 - Present',
+      fromDate: '2022-10-01',
+      toDate: new Date().toISOString().split('T')[0], // Current date
+      location: 'Chennai, India',
+      achievements: [
+        'Architected dynamic and scalable frontend features using ReactJS',
+        'Created interactive dashboards with Chart.js for data visualization',
+        'Integrated RESTful APIs optimized for large-scale user interactions',
+        'Developed a real-time chat system using GraphQL',
+        'Implemented user authentication systems with robust validation',
+        'Mentored junior developers and led code reviews',
+        'Automated processes reducing manual work by 75%',
+      ],
+      tags: ['React', 'GraphQL', 'AWS', 'Leadership'],
+    },
+    {
+      role: 'Freelance Full Stack Developer',
+      company: 'Ensure Investigation Service',
+      duration: 'Nov 2021 - Oct 2022',
+      fromDate: '2021-11-01',
+      toDate: '2022-10-31',
+      location: 'Remote',
+      achievements: [
+        'Built full-stack web and mobile applications using MERN stack',
+        'Developed backend services with AWS (Cognito, API Gateway, Lambda)',
+        'Implemented role-based access control for different user types',
+      ],
+      tags: ['MERN Stack', 'AWS', 'Full-stack'],
+    },
+    {
+      role: 'Junior Software Developer',
+      company: 'PyPs.In Technologies',
+      duration: 'Nov 2021 - Oct 2022',
+      fromDate: '2021-11-01',
+      toDate: '2022-10-31',
+      location: 'Chennai, India',
+      achievements: [
+        'Developed static sites and software solutions using React',
+        'Migrated legacy PHP application to React',
+        'Integrated and tested APIs using Axios and Postman',
+      ],
+      tags: ['React', 'API Integration', 'Migration'],
+    },
+    {
+      role: 'Web Developer',
+      company: 'SVS Infotech',
+      duration: 'Sep 2020 - Oct 2021',
+      fromDate: '2020-09-01',
+      toDate: '2021-10-31',
+      location: 'Chennai, India',
+      achievements: [
+        'Built content management systems and web applications',
+        'Worked with HTML, CSS, PHP, MySQL, and React',
+        'Collaborated closely with clients to deliver tailored solutions',
+      ],
+      tags: ['Web Development', 'CMS', 'Client Collaboration'],
+    },
+  ];
