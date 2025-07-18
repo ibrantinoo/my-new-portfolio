@@ -120,13 +120,14 @@ export default function Contact({ id, setActiveSection }: ContactProps) {
     {
       icon: <Email />,
       label: 'Email',
-      href: 'mailto:ibumohamed818@proton.me',
+      href: 'mailto:ibumohamed818@proton.me?subject=Contact%20from%20Portfolio&body=Hi%20Ibrahim%2C%0A%0AI%20found%20your%20portfolio%20and%20wanted%20to%20reach%20out.%0A%0A',
       color: '#EA4335',
       description: 'Send message'
     },
     {
       icon: <LinkedIn />,
       label: 'LinkedIn',
+      // href:'https://www.linkedin.com/messaging/compose/?message=Hi%20there,%20I%20wanted%20to%20connect!',
       href: 'https://linkedin.com/in/mohamed-ibrahim-linked-in',
       color: '#0077B5',
       description: 'Connect professionally'

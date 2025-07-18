@@ -4,8 +4,11 @@ import CodeIcon from '@mui/icons-material/Code';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MovieIcon from '@mui/icons-material/Movie';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import LetterBoxdIcon from '../assets/letterboxd.png';
+
 import {
     Box,
+    Button,
     Card,
     CardContent,
     Chip,
@@ -18,6 +21,7 @@ import {
 } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
+import { Image } from '@mui/icons-material';
 
 interface InterestsProps {
     id: string;
@@ -66,6 +70,14 @@ export default function Interests({ id }: InterestsProps) {
             tags: ['Sci-Fi', 'Thrillers', 'Classic'],
             color: '#96CEB4',
             gradient: 'linear-gradient(135deg, #96CEB4 0%, #B8E6C1 100%)',
+            actions: [
+                {
+                    label: "View My CineLog",
+                    href: 'https://letterboxd.com/ibrantino/films/',
+                    color: '#96CEB4',
+                    icon: LetterBoxdIcon
+                }
+            ]
         },
     ];
 
@@ -104,7 +116,7 @@ export default function Interests({ id }: InterestsProps) {
     };
 
     const cardVariants = {
-        hidden: { 
+        hidden: {
             // opacity: 0, 
             // y: 50,
             // scale: 0.8,
@@ -213,9 +225,9 @@ export default function Interests({ id }: InterestsProps) {
                                     borderRadius: '2px',
                                 }}
                             />
-                            <Typography 
-                                variant="h6" 
-                                sx={{ 
+                            <Typography
+                                variant="h6"
+                                sx={{
                                     mt: 3,
                                     color: theme.palette.text.secondary,
                                     maxWidth: '600px',
@@ -232,10 +244,10 @@ export default function Interests({ id }: InterestsProps) {
                     {/* Cards Grid */}
                     <Grid container spacing={4} justifyContent="center">
                         {interests.map((interest, index) => (
-                            <Grid size={{ xs:12, sm:12, md:12, lg:12}}>
+                            <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                                 <motion.div
                                     variants={cardVariants}
-                                    whileHover={{ 
+                                    whileHover={{
                                         y: -8,
                                         transition: { duration: 0.3 }
                                     }}
@@ -245,7 +257,7 @@ export default function Interests({ id }: InterestsProps) {
                                     <Card
                                         sx={{
                                             height: '100%',
-                                            background: hoveredCard === index 
+                                            background: hoveredCard === index
                                                 ? interest.gradient
                                                 : theme.palette.background.paper,
                                             borderRadius: 3,
@@ -254,7 +266,7 @@ export default function Interests({ id }: InterestsProps) {
                                             position: 'relative',
                                             overflow: 'hidden',
                                             border: `2px solid ${alpha(interest.color, 0.1)}`,
-                                            boxShadow: hoveredCard === index 
+                                            boxShadow: hoveredCard === index
                                                 ? `0 20px 40px ${alpha(interest.color, 0.3)}`
                                                 : theme.shadows[4],
                                             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -273,19 +285,19 @@ export default function Interests({ id }: InterestsProps) {
                                             },
                                         }}
                                     >
-                                        <CardContent sx={{ 
-                                            flexGrow: 1, 
-                                            display: 'flex', 
+                                        <CardContent sx={{
+                                            flexGrow: 1,
+                                            display: 'flex',
                                             flexDirection: 'column',
                                             p: 3,
                                             position: 'relative',
                                         }}>
                                             {/* Icon and Actions */}
-                                            <Box sx={{ 
-                                                display: 'flex', 
-                                                justifyContent: 'space-between', 
+                                            <Box sx={{
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
                                                 alignItems: 'flex-start',
-                                                mb: 2 
+                                                mb: 2
                                             }}>
                                                 <motion.div
                                                     // variants={iconVariants}
@@ -297,11 +309,11 @@ export default function Interests({ id }: InterestsProps) {
                                                         width: 60,
                                                         height: 60,
                                                         borderRadius: '50%',
-                                                        background: hoveredCard === index 
+                                                        background: hoveredCard === index
                                                             ? alpha(theme.palette.common.white, 0.2)
                                                             : alpha(interest.color, 0.1),
-                                                        color: hoveredCard === index 
-                                                            ? theme.palette.common.white 
+                                                        color: hoveredCard === index
+                                                            ? theme.palette.common.white
                                                             : interest.color,
                                                     }}
                                                 >
@@ -326,28 +338,17 @@ export default function Interests({ id }: InterestsProps) {
                                                             <FavoriteIcon fontSize="small" />
                                                         </IconButton>
                                                     </motion.div>
-                                                    {/* <motion.div
-                                                        whileHover={{ scale: 1.1 }}
-                                                        whileTap={{ scale: 0.9 }}
-                                                    >
-                                                        <IconButton
-                                                            size="small"
-                                                            aria-label={`Share ${interest.title}`}
-                                                        >
-                                                            <ShareIcon fontSize="small" />
-                                                        </IconButton>
-                                                    </motion.div> */}
                                                 </Box>
                                             </Box>
 
                                             {/* Title */}
-                                            <Typography 
-                                                variant="h5" 
-                                                component="h3" 
-                                                sx={{ 
-                                                    mb: 1.5, 
+                                            <Typography
+                                                variant="h5"
+                                                component="h3"
+                                                sx={{
+                                                    mb: 1.5,
                                                     fontWeight: 600,
-                                                    color: hoveredCard === index 
+                                                    color: hoveredCard === index
                                                         ? theme.palette.common.white
                                                         : theme.palette.text.primary,
                                                     display: 'flex',
@@ -360,10 +361,10 @@ export default function Interests({ id }: InterestsProps) {
                                             </Typography>
 
                                             {/* Description */}
-                                            <Typography 
-                                                variant="body2" 
-                                                sx={{ 
-                                                    color: hoveredCard === index 
+                                            <Typography
+                                                variant="body2"
+                                                sx={{
+                                                    color: hoveredCard === index
                                                         ? alpha(theme.palette.common.white, 0.9)
                                                         : theme.palette.text.secondary,
                                                     flexGrow: 1,
@@ -375,7 +376,7 @@ export default function Interests({ id }: InterestsProps) {
                                             </Typography>
 
                                             {/* Tags */}
-                                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 'auto' }}>
+                                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
                                                 <AnimatePresence>
                                                     {interest.tags.map((tag, tagIndex) => (
                                                         <motion.div
@@ -389,16 +390,16 @@ export default function Interests({ id }: InterestsProps) {
                                                                 label={tag}
                                                                 size="small"
                                                                 sx={{
-                                                                    backgroundColor: hoveredCard === index 
+                                                                    backgroundColor: hoveredCard === index
                                                                         ? alpha(theme.palette.common.white, 0.2)
                                                                         : alpha(interest.color, 0.1),
-                                                                    color: hoveredCard === index 
+                                                                    color: hoveredCard === index
                                                                         ? theme.palette.common.white
                                                                         : interest.color,
                                                                     border: `1px solid ${alpha(interest.color, 0.3)}`,
                                                                     fontWeight: 500,
                                                                     '&:hover': {
-                                                                        backgroundColor: hoveredCard === index 
+                                                                        backgroundColor: hoveredCard === index
                                                                             ? alpha(theme.palette.common.white, 0.3)
                                                                             : alpha(interest.color, 0.2),
                                                                     },
@@ -408,6 +409,59 @@ export default function Interests({ id }: InterestsProps) {
                                                     ))}
                                                 </AnimatePresence>
                                             </Box>
+
+                                            {/* Action Buttons */}
+                                            {interest.actions && interest.actions.length > 0 && (
+                                                <Box sx={{ display: 'flex', gap: 1, mt: 'auto' }}>
+                                                    {interest.actions.map((action, actionIndex) => (
+                                                        <motion.div
+                                                            key={actionIndex}
+                                                            whileHover={{ scale: 1.05 }}
+                                                            whileTap={{ scale: 0.95 }}
+                                                        >
+                                                            <Button
+                                                                variant="contained"
+                                                                size="small"
+                                                                href={action.href}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+
+                                                                sx={{
+                                                                    backgroundColor: hoveredCard === index
+                                                                        ? alpha(theme.palette.common.white, 0.2)
+                                                                        : alpha(interest.color, 0.1),
+                                                                    color: hoveredCard === index
+                                                                        ? theme.palette.common.white
+                                                                        : interest.color,
+                                                                    border: `1px solid ${alpha(interest.color, 0.3)}`,
+                                                                    fontWeight: 500,
+                                                                    textTransform: 'none',
+                                                                    '&:hover': {
+                                                                        backgroundColor: hoveredCard === index
+                                                                            ? alpha(theme.palette.common.white, 0.3)
+                                                                            : alpha(interest.color, 0.2),
+                                                                    },
+                                                                }}
+                                                            >
+
+                                                                {action.label}
+                                                                <Box
+                                                                    component="img"
+                                                                    sx={{
+                                                                        height: 'auto',
+                                                                        width: 20,
+                                                                        marginLeft: 1,
+                                                                        // maxHeight: { xs: 233, md: 167 },
+                                                                        // maxWidth: { xs: 350, md: 250 },
+                                                                    }}
+                                                                    alt={action.label}
+                                                                    src={action.icon}
+                                                                />
+                                                            </Button>
+                                                        </motion.div>
+                                                    ))}
+                                                </Box>
+                                            )}
                                         </CardContent>
                                     </Card>
                                 </motion.div>

@@ -4,6 +4,9 @@ import {
   Coffee as CoffeeIcon,
   Download as DownloadIcon,
   Email as EmailIcon,
+  FileCopyOutlined,
+  FileOpenOutlined,
+  FilePresent,
   GitHub as GitHubIcon,
   EmojiEmotions as JokeIcon,
   LinkedIn as LinkedInIcon,
@@ -116,7 +119,7 @@ export default function About({ id, setActiveSection }: AboutProps) {
     setIsLoadingJoke(true);
     setJokeError(false);
     try {
-      const response = await fetch('https://v2.jokeapi.dev/joke/Miscellaneous,Programming?blacklistFlags=racist,sexist,explicit,nsfw&type=single');
+      const response = await fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=racist,sexist,explicit,nsfw&type=single');
       const data = await response.json();
 
       if (!data.error) {
@@ -396,7 +399,7 @@ export default function About({ id, setActiveSection }: AboutProps) {
                 >
                   <Button
                     variant="outlined"
-                    endIcon={<DownloadIcon />}
+                    endIcon={<FilePresent />}
                     sx={{
                       borderColor: theme.palette.primary.main,
                       color: theme.palette.primary.main,
