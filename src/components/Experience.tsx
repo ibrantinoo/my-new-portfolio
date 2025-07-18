@@ -21,7 +21,7 @@ interface ExperienceProps {
   setActiveSection: (section: string) => void;
 }
 
-const MotionTypography = motion(Typography);
+// const MotionTypography = motion(Typography);
 
 export default function Experience({ id }: ExperienceProps) {
   const theme = useTheme();

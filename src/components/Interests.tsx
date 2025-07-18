@@ -21,7 +21,7 @@ import {
 } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import { Image } from '@mui/icons-material';
+// import { Image } from '@mui/icons-material';
 
 interface InterestsProps {
     id: string;

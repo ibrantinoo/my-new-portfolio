@@ -2,10 +2,7 @@
 import {
   Code as CodeIcon,
   Coffee as CoffeeIcon,
-  Download as DownloadIcon,
   Email as EmailIcon,
-  FileCopyOutlined,
-  FileOpenOutlined,
   FilePresent,
   GitHub as GitHubIcon,
   EmojiEmotions as JokeIcon,
