@@ -12,7 +12,7 @@ const LinkedInIcon = ({ size = 18, color = 'var(--accent)' }: { size?: number; c
 
 export default function Contact() {
   const contactChannels = [
-    
+
     {
       label: 'Email Address',
       value: 'ibumohamed818@gmail.com',
