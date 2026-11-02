@@ -1,0 +1,318 @@
+/* src/styles/layout.css - Pass 1: Semantic CSS Grid Layout & Structure */
+
+:root {
+  --grid-gap: 2rem;
+  --grid-gap-lg: 3rem;
+  --section-spacing-y: 6rem;
+}
+
+/* Base reset & container */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.portfolio-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Semantic Section Container */
+.portfolio-section {
+  padding-top: var(--section-spacing-y);
+  padding-bottom: var(--section-spacing-y);
+  position: relative;
+}
+
+/* 12-Column CSS Grid Engine */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  align-items: start;
+}
+
+/* -----------------------------------------------
+   HERO: Asymmetric Split Screen (Left: 7, Right: 5)
+   ----------------------------------------------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap-lg);
+  align-items: center;
+  min-height: calc(100vh - 80px);
+}
+
+.hero-content {
+  grid-column: 1 / span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-asset {
+  grid-column: 8 / span 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Spec Sheet / Telemetry Layout */
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.telemetry-full-width {
+  grid-column: 1 / -1;
+}
+
+/* -----------------------------------------------
+   PROJECTS: Asymmetric Gallery Grid
+   Lead: 12 col (7/5 subgrid)
+   Secondary: 7 col / 5 col split
+   ----------------------------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+.project-lead {
+  grid-column: 1 / span 12;
+}
+
+.project-lead-subgrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+.project-lead-overview {
+  grid-column: 1 / span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.project-lead-tech {
+  grid-column: 8 / span 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-secondary {
+  grid-column: 1 / span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.project-tertiary {
+  grid-column: 8 / span 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* -----------------------------------------------
+   EXPERIENCE: Asymmetric Ledger (4 / 8 Split)
+   ----------------------------------------------- */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.experience-item-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  align-items: start;
+}
+
+.experience-meta {
+  grid-column: 1 / span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.experience-details {
+  grid-column: 5 / span 8;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* -----------------------------------------------
+   SKILLS: Asymmetric Capabilities Matrix
+   Top: 6 / 6
+   Bottom: 7 / 5
+   ----------------------------------------------- */
+.skills-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+.skill-col-frontend {
+  grid-column: 1 / span 6;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-col-backend {
+  grid-column: 7 / span 6;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-col-ai {
+  grid-column: 1 / span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-col-tools {
+  grid-column: 8 / span 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* -----------------------------------------------
+   CREDENTIALS: Split Courses & Education (7 / 5)
+   ----------------------------------------------- */
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+.credentials-courses {
+  grid-column: 1 / span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.credentials-education {
+  grid-column: 8 / span 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* -----------------------------------------------
+   CONTACT: Direct Channel Asymmetric Grid (6 / 6)
+   ----------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap-lg);
+  align-items: start;
+}
+
+.contact-narrative {
+  grid-column: 1 / span 6;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-channels {
+  grid-column: 7 / span 6;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* -----------------------------------------------
+   HEADER & FOOTER Structural Layout
+   ----------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+
+.nav-links-list {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.site-footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* -----------------------------------------------
+   RESPONSIVE BREAKPOINTS (Mobile & Tablet)
+   ----------------------------------------------- */
+@media (max-width: 960px) {
+  .hero-content,
+  .hero-asset,
+  .project-lead,
+  .project-lead-overview,
+  .project-lead-tech,
+  .project-secondary,
+  .project-tertiary,
+  .experience-meta,
+  .experience-details,
+  .skill-col-frontend,
+  .skill-col-backend,
+  .skill-col-ai,
+  .skill-col-tools,
+  .credentials-courses,
+  .credentials-education,
+  .contact-narrative,
+  .contact-channels {
+    grid-column: 1 / -1;
+  }
+
+  .hero-grid {
+    min-height: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .nav-links-list {
+    display: none; /* Handled by mobile menu */
+  }
+
+  .contact-channels {
+    grid-template-columns: 1fr;
+  }
+}

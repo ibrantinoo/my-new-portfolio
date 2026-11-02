@@ -1,49 +1,36 @@
-// components/Footer.tsx
-import { Box, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+// src/components/Footer.tsx
+import { motion } from 'framer-motion';
+import { ArrowUp, Code2 } from 'lucide-react';
 
 export default function Footer() {
-  const theme = useTheme();
+  const currentYear = new Date().getFullYear();
 
   return (
-    <Box
-      sx={{
-        py: 4,
-        px: { xs: 4, md: 10 },
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        backgroundColor: theme.palette.background.paper,
-      }}
-    >
-      {/* <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
-        <IconButton
-          aria-label="GitHub"
-          href="https://api.whatsapp.com/send?phone=919659489912&text=Hi%20  Ibu!"
-          target="_blank"
-          sx={{ color: theme.palette.text.secondary, '&:hover': { color: theme.palette.primary.main } }}
-        >
-          <WhatsApp />
-        </IconButton>
-        <IconButton
-          aria-label="LinkedIn"
-          href="https://linkedin.com/in/mohamed-ibrahim-linked-in"
-          target="_blank"
-          sx={{ color: theme.palette.text.secondary, '&:hover': { color: theme.palette.primary.main } }}
-        >
-          <LinkedIn />
-        </IconButton>
-        <IconButton
-          aria-label="Email"
-          href="mailto:ibumohamed818@proton.me"
-          sx={{ color: theme.palette.text.secondary, '&:hover': { color: theme.palette.primary.main } }}
-        >
-          <Email />
-        </IconButton>
-      </Box> */}
-      <Typography variant="body2" sx={{ color: theme.palette.text.secondary, textAlign: 'center' }}>
-        Designed & Built by Mohamed Ibrahim
-      </Typography>
-    </Box>
+    <footer className="site-footer">
+      <div className="portfolio-container footer-inner">
+        <div className="footer-left">
+          <p className="footer-copy">
+            © {currentYear} Mohamed Ibrahim • Senior Full Stack Developer
+          </p>
+          <p className="footer-subcopy" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <Code2 size={13} color="var(--accent)" />
+            Engineered with React 19, TypeScript, Framer Motion & CSS Grid. Source of truth: Resume.
+          </p>
+        </div>
+
+        <div className="footer-right">
+          <motion.a
+            href="#hero"
+            className="footer-back-to-top"
+            whileHover={{ y: -2, color: 'var(--accent)' }}
+            whileTap={{ scale: 0.95 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+          >
+            <span>Back to Top</span>
+            <ArrowUp size={14} />
+          </motion.a>
+        </div>
+      </div>
+    </footer>
   );
 }

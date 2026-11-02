@@ -1,239 +1,111 @@
-// components/Experience.tsx
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Chip,
-  Divider,
-  Typography,
-  useTheme
-} from '@mui/material';
+// src/components/Experience.tsx
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { experiences } from '../utils/constants'; // Adjust the import path as necessary
+import { Calendar, MapPin, Building2 } from 'lucide-react';
 
-interface ExperienceProps {
-  id: string;
-  setActiveSection: (section: string) => void;
-}
-
-const MotionTypography = motion(Typography);
-
-export default function Experience({ id }: ExperienceProps) {
-  const theme = useTheme();
-  // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const [expanded, setExpanded] = useState<string | false>(false);
-
-  const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-    console.log(`Panel ${panel} is now ${isExpanded ? 'expanded' : 'collapsed'}; Event:`, event);
-    setExpanded(isExpanded ? panel : false);
-  };
-
-
+export default function Experience() {
+  const experiences = [
+    {
+      role: 'Senior Software Developer',
+      company: 'Kruu Inc.',
+      period: 'Oct 2022 – Present',
+      location: 'Chennai, India',
+      scope: 'End-to-end full-stack feature ownership across ed-tech SaaS and internal ERP platforms.',
+      bullets: [
+        'Owned end-to-end development of features across education products, translating business requirements into maintainable React interfaces, Express.js APIs, MongoDB operations, and application workflows.',
+        'Designed and developed reusable React and TypeScript architectures for configurable forms, dynamic worksheets, tables, file uploads, nested inputs, and conditional workflows.',
+        'Developed backend APIs and optimized MongoDB queries and aggregation pipelines for filtering, pagination, reporting, bulk data processing, and reusable data-access operations.',
+        'Integrated AWS Lambda-based serverless APIs with MongoDB and AWS services, including Cognito user/group workflows, S3 file handling, and asynchronous background processing.',
+        'Integrated Google Gemini, Razorpay, SendGrid, Amazon SES, and Zoom Meeting SDK to support AI-assisted evaluation, payments, notifications, and meeting workflows.',
+        'Implemented real-time messaging using GraphQL queries, mutations, and subscriptions, including service-layer separation and subscription lifecycle management.',
+        'Developed internal HRMS workflows for attendance, leave, and asset management, reducing manual administrative effort by approximately 75% through automated reporting and exports.',
+        'Conducted code reviews and mentored junior developers on debugging, reusable components, type safety, and maintainable code. Collaborated with cross-functional teams to deliver and support production features.'
+      ],
+      technologies: ['React', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'GraphQL', 'AWS Lambda', 'Google Gemini', 'Razorpay', 'Cognito']
+    },
+    {
+      role: 'Junior Software Developer',
+      company: 'PyPs.In Technologies',
+      period: 'Nov 2021 – Oct 2022',
+      location: 'Chennai, India',
+      scope: 'Frontend web application engineering, legacy modernization, and third-party API integration.',
+      bullets: [
+        'Developed React applications integrated with Firebase backend services and REST APIs.',
+        'Contributed to migrating a clinical booking platform from PHP to React, improving frontend usability, maintainability, and load times.',
+        'Integrated APIs using Axios, Postman, and Swagger, collaborating directly with clients to translate business requirements into responsive UI components.'
+      ],
+      technologies: ['React', 'JavaScript', 'Firebase', 'REST APIs', 'PHP Migration', 'Axios', 'Postman']
+    }
+  ];
 
   return (
-    <Box
-      id={id}
-      sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        px: { xs: 4, md: 10 },
-        py: 10,
-        alignItems: 'center',
-      }}
-    >
-      <Typography
-        variant="h2"
-        sx={{
-          mb: 2,
-          fontWeight: 700,
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-          backgroundClip: 'text',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          position: 'relative',
-          display: 'inline-block',
-          '&:before': {
-            content: '"06."',
-            color: theme.palette.primary.main,
-            position: 'absolute',
-            left: '-60px',
-            top: 0,
-            fontFamily: 'monospace',
-            fontSize: '0.6em',
-            fontWeight: 400,
-            opacity: 0.8,
-          },
-        }}
-      >
-        Professional Journey
-      </Typography>
+    <section id="experience" className="portfolio-section experience-section">
+      <div className="portfolio-container">
+        <motion.header
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="section-label">02 / Trajectory</span>
+          <h2 className="section-title">Professional Experience</h2>
+          <p className="section-subtitle">
+            5+ years of verified production engineering, architectural ownership, and team leadership.
+          </p>
+        </motion.header>
 
-      <Box sx={{ position: 'relative',width:'100%' }}>
-        {/* Timeline decoration */}
-        <Box
-          sx={{
-            position: 'absolute',
-            left: { xs: '16px', sm: '24px' },
-            top: 0,
-            bottom: 0,
-            width: '2px',
-            backgroundColor: theme.palette.primary.main,
-            zIndex: 0,
-          }}
-        />
-
-        {experiences.map((exp: any, index: number) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <Accordion
-              expanded={expanded === `panel${index}`}
-              onChange={handleChange(`panel${index}`)}
-              sx={{
-                backgroundColor: 'transparent',
-                boxShadow: 'none',
-                '&:before': { display: 'none' },
-                mb: 4,
-                position: 'relative',
-                zIndex: 1,
-                borderLeft: `2px solid ${theme.palette.primary.main}`,
-                marginLeft: { xs: '30px', sm: '40px' },
-                '&.Mui-expanded': {
-                  margin: 0,
-                  marginLeft: { xs: '30px', sm: '40px' },
-                  marginBottom: 4,
-                },
-              }}
+        <div className="experience-list">
+          {experiences.map((exp, index) => (
+            <motion.article
+              key={index}
+              className="experience-item-grid"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.55, delay: index * 0.15 }}
             >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: theme.palette.primary.main }} />}
-                sx={{
-                  '& .MuiAccordionSummary-content': {
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                  },
-                  '&.Mui-expanded': {
-                    minHeight: '48px',
-                  },
-                }}
-              >
-                {/* <Box
-                  sx={{
-                    position: 'absolute',
-                    left: { xs: '-38px', sm: '-50px' },
-                    top: '16px',
-                    width: { xs: '24px', sm: '32px' },
-                    height: { xs: '24px', sm: '32px' },
-                    borderRadius: '50%',
-                    backgroundColor: theme.palette.background.default,
-                    border: `2px solid ${theme.palette.primary.main}`,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <WorkIcon sx={{margin:'10px', color: theme.palette.primary.main, fontSize: { xs: '1rem', sm: '1.25rem' } }} />
-                </Box> */}
+              {/* Left Column: Metadata & Tenure */}
+              <div className="experience-meta">
+                <span className="experience-period" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <Calendar size={13} color="var(--accent)" />
+                  {exp.period}
+                </span>
+                <h3 className="experience-role">{exp.role}</h3>
+                <span className="experience-company" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <Building2 size={15} color="var(--text-secondary)" />
+                  {exp.company}
+                </span>
+                <span className="experience-location" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                  <MapPin size={12} color="var(--text-muted)" />
+                  {exp.location}
+                </span>
+                <p className="experience-scope">{exp.scope}</p>
+              </div>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                  <Typography variant="h3" sx={{ fontWeight: 600 }}>
-                    {exp.role}
-                  </Typography>
-                  <Typography variant="h4" sx={{ color: theme.palette.primary.main }}>
-                    {exp.company}
-                  </Typography>
-
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
-                    <Chip
-                      icon={<CalendarTodayIcon sx={{ fontSize: '1rem' }} />}
-                      label={exp.duration}
-                      size="small"
-                      sx={{
-                        backgroundColor: theme.palette.background.paper,
-                        color: theme.palette.text.primary,
-                      }}
-                    />
-                    <Chip
-                      icon={<LocationOnIcon sx={{ fontSize: '1rem' }} />}
-                      label={exp.location}
-                      size="small"
-                      sx={{
-                        backgroundColor: theme.palette.background.paper,
-                        color: theme.palette.text.primary,
-                      }}
-                    />
-                  </Box>
-
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
-                    {exp.tags.map((tag: any, i: number) => (
-                      <Chip
-                        key={i}
-                        label={tag}
-                        size="small"
-                        sx={{
-                          backgroundColor: theme.palette.primary.dark,
-                          color: theme.palette.getContrastText(theme.palette.primary.dark),
-                          fontSize: '0.7rem',
-                        }}
-                      />
-                    ))}
-                  </Box>
-                </Box>
-              </AccordionSummary>
-
-              <AccordionDetails
-                sx={{
-                  backgroundColor: theme.palette.background.paper,
-                  borderRadius: '4px',
-                  padding: { xs: 2, sm: 3 },
-                }}
-              >
-                <Divider sx={{ mb: 2, borderColor: theme.palette.divider }} />
-                <Box
-                  component="ul"
-                  sx={{
-                    pl: 2,
-                    listStyleType: 'none',
-                    '& li': {
-                      position: 'relative',
-                      pl: '24px',
-                      mb: 1.5,
-                      '&:before': {
-                        content: '"▹"',
-                        position: 'absolute',
-                        left: 0,
-                        color: theme.palette.primary.main,
-                      }
-                    }
-                  }}
-                >
-                  {exp.achievements.map((item: any, i: number) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: i * 0.05 }}
-                    >
-                      <Typography variant="body1">{item}</Typography>
-                    </motion.li>
+              {/* Right Column: Architectural Contributions & Impact Bullets */}
+              <div className="experience-details">
+                <ul className="experience-bullets">
+                  {exp.bullets.map((bullet, bIndex) => (
+                    <li key={bIndex}>{bullet}</li>
                   ))}
-                </Box>
-              </AccordionDetails>
-            </Accordion>
-          </motion.div>
-        ))}
-      </Box>
-    </Box>
+                </ul>
+
+                <div className="experience-tech-tags">
+                  {exp.technologies.map((tech, tIndex) => (
+                    <motion.span
+                      key={tIndex}
+                      className="tech-chip-sm"
+                      whileHover={{ scale: 1.05, borderColor: 'var(--accent-border)' }}
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
